@@ -1,0 +1,15 @@
+\section{Normalización y espacios de coordenadas.}
+OpenGL necesita que las coordinadas $x, y, z$ que se le dan para mostrar
+los vértices estén normalizadas, es decir, que todas estén en un rango $[-1.0, 1.0]$, pues es el sistema de coordenadas que maneja.\par
+
+Las coordenadas de vértice podemos escribirlas como usualmente las conocemos, sin embargo cuando se la pasamos al VBO deberán estar normalizadas. Al resultado que se obtiene de normalizar las coordenadas se conoce como coordenadas normalizadas de dispositivo (NDC por las siglas en inglés de "normalized device coordinates").\par
+
+Las coordenadas se transforman NDC paso por paso pasando por diferentes sistemas de coordenadas intermedios debido a que ciertos cálculos pueden ser más fáciles de hacer en unos sistemas que en otros. Los de mayor interés son estos sistemas: \par
+
+\begin{itemize}
+    \item Espacio local: es el espacio de coordenadas en el cual aparece el objeto, por lo general $(0, 0, 0)$.
+    \item Espacio global: son las coordenadas de todos los vértices relativos a un mundo, v.g. $(3, 1, 5), (-1, -5, 30)$. Básicamente se dispersan todos los objetos en un mundo para que no se acumulen en el origen.
+    \item Espacio de visión: es conocido como la cámara. En resumen, es el espacio mundial observado desde el punto de vista de la cámara.
+    \item Espacio de recorte: si una coordenada luego de pasar por el shader de vértice está fuera del rango aceptado por OpenGL, será recortada, es decir, no se mostrará mientras que aquellas que si estén en el rango terminarán como fragmentos visibles. Así a lo que se ve luego de hacer los recortes se llama espacio de recorte.
+    \item Espacio de pantalla: son las coordenadas del espacio de recorte transformadas a coordenadas en la pantalla.
+\end{itemize}

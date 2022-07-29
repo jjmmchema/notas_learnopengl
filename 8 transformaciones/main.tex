@@ -1,0 +1,62 @@
+\documentclass[12pt]{article} % Tamaño de fuente y tipo de documento
+\usepackage[utf8]{inputenc}
+\usepackage{tikz} % Gráficos
+\usepackage{amsmath} % Formulas matemáticas
+\usepackage{setspace} % Espacio entre líneas
+\usepackage{indentfirst} % Sangría en primeros párrafos de sección
+\usepackage{lipsum} % Texto de prueba
+\usepackage{fancyhdr} % Personalizar estilo de número de página
+\usepackage{xcolor} % Colores
+\usepackage{listings} % Para escribir código
+\usepackage{geometry}
+
+\geometry{
+     a4paper,
+     % Márgenes de la página
+     left=3cm,
+     right=3cm,
+     top=2.5cm,
+     bottom=2.5cm,
+ }
+ 
+ \definecolor{aurometalsaurus}{rgb}{0.43, 0.5, 0.5}
+ 
+ \lstset {
+    language=C++,
+    backgroundcolor=\color{black!5}, % Fondo 5% negro 95% blanco
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    commentstyle=\color{aurometalsaurus}\ttfamily,
+    morecomment=[l][\color{magenta}]{\#}
+}
+ 
+\renewcommand{\headrulewidth}{0pt} % No mostrar línea al inicio de la página
+ 
+% Establecer estilo para todas las páginas excepto la primera
+\pagestyle{fancy}
+\fancyhead{} % Quitar el nombre de la sección en las páginas
+\fancyfoot{} % Quitar el número de página del centro abajo
+\fancyfoot[R]{\thepage} % Poner número página a la derecha del pie de página
+
+% Estilo de la página inicial
+\fancypagestyle{plain}{ 
+    \fancyhf{} % Quitar estilos para la cabeza y el pie de página
+    \fancyfoot[R]{\thepage} % Poner número página a la derecha del pie de página
+}
+
+\setlength{\voffset}{0cm} % Quitar el espacio encima del título
+\setlength{\parindent}{1.25cm} % 
+\setlength{\parskip}{\baselineskip} % El espacio entre páginas será \baselineskip
+\onehalfspacing % Interlineado de 1.5
+
+\title{Anotaciones LearnOpenGL \\ Capítulo 8: Transformaciones }
+\author{Josemaría Marín}
+\date{26 de Julio de 2022}
+
+\begin{document}
+
+\include{intro}
+\include{comandos}
+
+\end{document}

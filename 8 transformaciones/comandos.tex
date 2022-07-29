@@ -1,0 +1,42 @@
+\section{Comandos con GLM Y C++}
+Primero se crea una matriz desde la cual se van a hacer todas las
+transformaciones:\par
+
+\begin{lstlisting}
+glm::mat4 transformacion = glm::mat4(1.0f)
+\end{lstlisting}\par
+
+Después, se procede a modificarla para convertirla en una matriz escalado, rotación, traslación 
+(no se exactamente como traducir translation en este caso) o una combinación de estas aplicando
+los siguientes comandos en el orden que se desee.
+
+\begin{lstlisting}
+// Escalado
+transformacion = glm::scale(transformacion, 
+                            glm::vec3(a, b, c));
+\end{lstlisting}\par
+
+Aquí glm::vec3(a, b, c) es el vector de escalado que se va a aplicar
+a cada uno de los vértices.
+
+\begin{lstlisting}
+// Rotacion
+transformacion = glm::rotate(transformacion,
+                             glm::radians(angulo),
+                             glm:vec3(a, b, c));
+\end{lstlisting}\par
+
+glm:vec3(a, b, c) en este caso determinará el eje alrededor
+del cual se va a rotar, debe ser un vector unitario. Para
+rotar en 2D, se deberá hacerlo alrededor del eje z, por lo que
+se hace que a = 0.0f, b = 0.0f y c = 1.0f.
+
+\begin{lstlisting}
+// Traslacion
+transformacion = glm::translate(transformacion, 
+                                glm::vec3(a, b, c));
+\end{lstlisting}\par
+
+glm::vec3(a, b, c) será el vector que se sumará a cada uno de
+los vectores de posición de los vértices para "moverlos" a otro
+lado.

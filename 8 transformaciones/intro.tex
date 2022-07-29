@@ -1,0 +1,70 @@
+\newcommand{\ctheta}{\cos{\theta}}
+\newcommand{\stheta}{\sin{\theta}}
+\newcommand{\p}{\cdot}
+
+\maketitle
+
+\section{Matrices de rotación.}
+    Las matrices a continuación son para transformar
+vectores en 4D en los que la 4ta componente corresponde
+a la anchura del vector y no a un nuevo eje, razón por la
+cual se deja igual dicha componente.\par
+    En otras palabras, estas matrices permiten realizar
+rotaciones a vectores 3D alrededor del eje que se desee.\par
+
+Matriz de rotación alrededor del eje x:
+\begin{align*}
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & \ctheta & -\stheta & 0 \\
+        0 & \stheta & \ctheta & 0 \\
+        0 & 0 & 0 & 1 \\
+    \end{bmatrix} \cdot
+    \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} = 
+    \begin{pmatrix} x \\
+                    \ctheta \p y - \stheta \p z \\
+                    \stheta \p y + \ctheta \p z \\ 
+                    1\end{pmatrix}
+\end{align*}
+
+Matriz de rotación alrededor del eje y:
+\begin{align*}
+    \begin{bmatrix}
+        \ctheta & 0 & \stheta & 0 \\
+        0 & 1 & 0 & 0 \\
+        -\stheta & 0 & \ctheta & 0 \\
+        0 & 0 & 0 & 1 \\
+    \end{bmatrix} \cdot
+    \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} = 
+    \begin{pmatrix} \ctheta \p x + \stheta \p z \\
+                    y \\
+                    -\stheta \p x + \ctheta \p z \\ 
+                    1\end{pmatrix}
+\end{align*}
+
+Matriz de rotación alrededor del eje z:
+\begin{align*}
+    \begin{bmatrix}
+        \ctheta & -\stheta & 0 & 0 \\
+        \stheta & \ctheta & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1 \\
+    \end{bmatrix} \cdot 
+    \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} = \begin{pmatrix} \ctheta \p x - \stheta \p y \\
+                    \stheta \p x + \ctheta \p y \\
+                    z \\ 1\end{pmatrix}
+\end{align*}
+
+\section{Combinación de matrices de transformación y escalado.}
+    Es importante saber que se pueden combinar las matrices
+de transformación, rotación y escalado para no tener que
+aplicarlas individualmente a un vector sino en conjunto como
+una sola matriz.\par
+    Como la multiplicación de matrices no es commutativa,
+se debe primero hacer el escalado, luego la rotación y por
+último las transformaciones para obtener los resultados deseados. En otras palabras:\par
+\begin{align*}
+    \begin{bmatrix} \textit{Transformación} \end{bmatrix} \p
+    \begin{bmatrix} \textit{Escalado} \end{bmatrix} =
+    \begin{bmatrix} \textit{Combinación} \end{bmatrix}
+\end{align*}

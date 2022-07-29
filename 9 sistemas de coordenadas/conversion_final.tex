@@ -1,0 +1,7 @@
+\section{Conversión final.}
+Una coordinada de vértice se convierte a una coordenada de recorte así:
+\begin{equation*}
+    V_{recorte} = M_{proyeccion} \cdot M_{vision} \cdot M_{modelado} \cdot V_{local}
+\end{equation*}
+
+Hay que recordar que la multiplicación de matrices se debe leer de izquierda a derecha, es decir, primero se aplica la de modelado, luego la de visión y luego la de proyección. El resultado de esto debe asignarse a \lstinline{gl_Position}.
